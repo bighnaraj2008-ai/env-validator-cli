@@ -43,3 +43,40 @@ env-validator-cli/
 ```
 
 For full module specs and data-flow diagrams, see [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md) and [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md).
+
+---
+
+## Quickstart Guide
+
+### 1. Installation
+
+```bash
+git clone https://github.com/bighnaraj2008-ai/env-validator-cli.git
+cd env-validator-cli
+python -m pip install -e ".[dev]"
+```
+
+*(Because the core engine uses only Python's standard library, `python main.py` also runs directly without external installs.)*
+
+### 2. Validate Environment Files
+
+```bash
+# Strict schema validation against an example file
+python main.py --env .env.example
+
+# Strict hygiene mode (fails on undeclared extra keys)
+python main.py --env .env.example --strict
+
+# Machine-readable JSON output for CI/CD gates
+python main.py --env .env.example --format json
+
+# Legacy key-sync check against .env.example
+python main.py --env .env.example --compare-example
+```
+
+### 3. Run Unit Tests & Linters
+
+```bash
+pytest tests/ -v
+flake8 main.py src schemas tests scripts
+```
