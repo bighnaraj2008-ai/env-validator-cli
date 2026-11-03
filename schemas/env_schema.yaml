@@ -1,0 +1,60 @@
+# Declarative YAML Schema Template for env-validator-cli
+schema_name: env-validator-cli
+version: "1.0"
+
+fields:
+  - name: APP_NAME
+    required: true
+    type: string
+    description: Application identifier displayed in logs and health checks.
+
+  - name: APP_ENV
+    required: true
+    type: string
+    pattern: "^(development|staging|production)$"
+    description: Deployment environment tier.
+
+  - name: PORT
+    required: true
+    type: integer
+    description: TCP port the application listens on.
+
+  - name: DEBUG
+    required: true
+    type: boolean
+    description: Enable verbose debug output (true/false).
+
+  - name: SECRET_KEY
+    required: true
+    type: string
+    min_length: 8
+    description: Cryptographic secret used for signing.
+
+  - name: JWT_SECRET
+    required: true
+    type: string
+    min_length: 8
+    description: Secret used to sign JSON Web Tokens.
+
+  - name: DATABASE_URL
+    required: true
+    type: string
+    pattern: "^(postgres|postgresql)://.+"
+    description: SQLAlchemy-compatible database connection URL.
+
+  - name: REDIS_URL
+    required: true
+    type: string
+    pattern: "^redis://.+"
+    description: Redis connection URL.
+
+  - name: API_KEY
+    required: true
+    type: string
+    description: Third-party service API key.
+
+  - name: SENTRY_DSN
+    required: false
+    type: string
+    pattern: "^https://.+"
+    description: Optional Sentry error-tracking DSN.
