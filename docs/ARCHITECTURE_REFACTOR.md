@@ -114,3 +114,91 @@ Colours/emojis are used only on TTYs; piped/CI output is plain and
 machine-friendly. Returns exit code `0` on pass, `1` on failure.
 
 ---
+
+## 4. Validation Workflow
+
+```
+┌──────────────┐      ┌─────────────────┐      ┌──────────────────┐
+│  CLI (main)  │────▶│   parser.py     │────▶│   rules.py       │
+│  argparse    │      │  .env → dict    │      │  required/type/  │
+└──────────────┘      └─────────────────┘      │  pattern/length  │
+      │                                         └────────┬─────────┘
+      │                                                  │
+      │      ┌────────────────┐      ┌──────────────────┘
+      │      │   schema.py    │◀─────┤
+      │      │  Schema engine │      │
+      └─────▶│  + report      │      │
+             └────────────────┘      │
+                   │                 │
+                   ▼                 ▼
+             ┌─────────────────────────────┐
+             │ reporter.py                 │
+             │ ConsoleReporter (text/JSON) │
+             └─────────────────────────────┘
+                         │
+                         ▼
+                    exit code (0/1/2)
+```
+
+Steps:
+
+1. **Parse** — `.env` → `dict[str, str]` via `parse_env_file`.
+2. **Validate** — `Schema.validate()` applies `DEFAULT_RULES` to each declared field.
+3. **Report** — `ConsoleReporter` prints errors/warnings and returns an exit code.
+
+### Legacy mode
+
+`--compare-example` preserves the original behaviour: key-set diff between
+`.env` and `.env.example` (missing/extra keys only, no typing).
+
+---
+
+## 5. Extending the Schema
+
+1. Open `schemas/env_schema.py`.
+2. Append an `EnvFieldSchema` to the `ENV_SCHEMA.fields` list.
+3. Choose `required`, `type`, and optionally `pattern` / `min_length`.
+4. Run `python main.py` — new fields are enforced immediately.
+
+To add a new rule:
+
+1. Subclass `Rule` in `src/validator/rules.py` and implement `check()`.
+2. Add it to `DEFAULT_RULES` or pass a custom `rules` sequence to `Schema(...)`.
+
+---
+
+## 6. CLI Usage
+
+```bash
+# Default: strict schema validation against .env
+python main.py
+
+# Strict mode: also fail on keys not declared in the schema
+python main.py --strict
+
+# JSON output for CI/CD
+python main.py --format json
+
+# Validate a different environment file
+python main.py --env .env.production --schema default
+
+# Legacy key-sync check vs .env.example
+python main.py --compare-example
+
+# List available schema templates
+python main.py --list-schemas
+```
+
+Exit codes: `0` valid, `1` validation failed, `2` usage/file error.
+
+---
+
+## 7. Error Handling Philosophy
+
+* **Fail fast on configuration problems**: missing files and unreadable input
+  raise exceptions that the CLI converts to exit code `2`.
+* **Collect, don't abort**: all rule violations across all fields are gathered
+  into one report so a developer sees every problem in a single run.
+* **Never print from logic**: parser, rules, and schema modules raise or
+  return structured data; only the reporter layer renders output. This keeps
+  the core testable without mocking stdout.
