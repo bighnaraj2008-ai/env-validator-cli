@@ -12,3 +12,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added unit test suite under `tests/` (`test_parser`, `test_schema`, `test_rules`, `test_cli`) and `tests/harness/mock_env.py`.
 - Added CLI automation wrappers (`scripts/validate_env.py`, `scripts/generate_template.py`, `scripts/smoke_test.sh`).
 - Configured GitHub Actions CI matrix across Python 3.9-3.12 with Flake8 and Pytest.
+
+<!-- Day 1 Core Architecture & Modular Refactoring Completed -->
