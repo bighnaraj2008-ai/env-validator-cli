@@ -85,3 +85,11 @@ python main.py --env .env.example --compare-example
 pytest tests/ -v
 flake8 main.py src schemas tests scripts
 ```
+
+---
+
+## Troubleshooting
+
+- **`EnvFileNotFoundError`:** Ensure `--env` points to an existing file (default is `.env`; pass `--env .env.example` in CI).
+- **Unexpected extra keys in `--strict` mode:** Add newly introduced keys to `schemas/env_schema.py` or `schemas/env_schema.yaml`.
+- **`TypeCastError` on booleans:** Accepted truthy/falsy strings are `1/0`, `true/false`, `yes/no`, and `on/off` (case-insensitive).
