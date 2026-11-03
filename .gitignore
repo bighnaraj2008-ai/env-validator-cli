@@ -1,3 +1,40 @@
-venv/
+# Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local logs
+*.log
+
+# Sensitive environment files (allow tracked templates)
 .env
+.env.*
+!.env.example
+!examples/.env.example
+
+# IDE / Agent configs & OS metadata
+.vscode/
+.idea/
+.antigravity/
+.cursor/
+.claude/
+.DS_Store
+Thumbs.db
