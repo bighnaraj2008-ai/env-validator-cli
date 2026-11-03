@@ -99,3 +99,9 @@ flake8 main.py src schemas tests scripts
 ## Contributing & Security
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development guidelines and [`SECURITY.md`](SECURITY.md) for responsible disclosure.
+
+---
+
+## License
+
+Licensed under the MIT License — see [`LICENSE`](LICENSE) for details.
