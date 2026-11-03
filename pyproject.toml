@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "env-validator-cli"
+version = "0.1.0"
+description = "Zero-dependency CLI tool to validate, cast, and synchronize .env files against strict schemas"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "bighnaraj2008-ai", email = "236182883+bighnaraj2008-ai@users.noreply.github.com"}
+]
+dependencies = []
+
+[project.optional-dependencies]
+yaml = ["pyyaml>=6.0.0"]
+dev = [
+    "pytest>=8.0.0",
+    "flake8>=7.0.0",
+    "pyyaml>=6.0.0",
+]
+
+[project.scripts]
+env-validator = "src.validator.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "schemas*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-v --strict-markers"
