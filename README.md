@@ -130,4 +130,16 @@ When contributing new validation rules, ensure matching test cases are added to 
 
 Licensed under the MIT License (Open Source) — see [`LICENSE`](LICENSE) for complete copyright terms.
 
-<!-- Project 3 (env-validator-cli) Day 1 Refactoring & Core Architecture Sprint Completed -->
+<!-- Project 3 (env-validator-cli) Day 2 Test Coverage & Fixture Improvements Sprint Completed -->
+
+### Day 2 Test Suite Reference Summary
+
+| Test Layer | Directory / File | Description |
+|---|---|---|
+| Fixture Validation | `tests/test_fixtures.py` | Ingests `.env` fixtures and verifies schema rejection/acceptance |
+| Edge Cases | `tests/edge_cases/` | Special characters, duplicate keys, bounds, booleans |
+| Performance | `tests/performance/` | High-throughput parsing micro-benchmarks (< 500ms) |
+| Stress Tests | `tests/stress/` | High-volume variable storm (5,000 keys) and payload limits |
+| Memory Profile | `tests/memory/` | Bounded memory usage verification (< 10MB peak) |
+| Automation Harness | `scripts/run_unit_tests.py` | Test suite execution and telemetry reporting |
+
