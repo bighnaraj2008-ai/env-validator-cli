@@ -126,6 +126,6 @@ When contributing new validation rules, ensure matching test cases are added to 
 
 ## License
 
-Licensed under the MIT License — see [`LICENSE`](LICENSE) for details.
+Licensed under the MIT License (Open Source) — see [`LICENSE`](LICENSE) for complete copyright terms.
 
 <!-- Project 3 (env-validator-cli) Day 1 Refactoring & Core Architecture Sprint Completed -->
