@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Set
+from typing import Iterable, List, Set
 from src.validator.schema import ValidationReport
 
 
@@ -11,7 +11,8 @@ def assert_report_passed(
     msg: str = "Expected report to pass cleanly",
 ) -> None:
     """Assert that a ValidationReport contains zero validation errors."""
-    assert report.passed is True, f"{msg}: found {len(report.errors)} errors: {report.errors}"
+    formatted_errors = [f"[{e.key}] {e.code}: {e.message}" for e in report.errors]
+    assert report.passed is True, f"{msg}: found errors: {formatted_errors}"
     assert len(report.errors) == 0
 
 
@@ -38,3 +39,13 @@ def assert_missing_keys(report: ValidationReport, keys: Iterable[str]) -> None:
     actual_missing: Set[str] = {err.key for err in report.errors if err.code == "missing"}
     expected = set(keys)
     assert expected <= actual_missing, f"Missing keys {expected - actual_missing} not flagged"
+
+
+def format_report_diagnostics(report: ValidationReport) -> List[str]:
+    """Format report errors and warnings into human-readable diagnostic lines."""
+    diagnostics = []
+    for err in report.errors:
+        diagnostics.append(f"ERROR: [{err.key}] {err.code} -> {err.message}")
+    for warn in report.warnings:
+        diagnostics.append(f"WARN:  [{warn.key}] {warn.code} -> {warn.message}")
+    return diagnostics
