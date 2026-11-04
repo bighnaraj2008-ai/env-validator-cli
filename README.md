@@ -43,11 +43,12 @@ env-validator-cli/
 ├── scripts/
 │   ├── validate_env.py            # CLI wrapper script
 │   ├── generate_template.py       # .env.example template generator
+│   ├── run_unit_tests.py          # Automated test harness runner
 │   └── smoke_test.sh              # Pre-flight integration smoke check
-└── tests/                         # Unit tests & mock harness
+└── tests/                         # Unit tests, edge cases, fixtures & benchmarks
 ```
 
-For full module specs and data-flow diagrams, see [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md) and [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md).
+For documentation and specifications, see [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md).
 
 ---
 
@@ -84,6 +85,23 @@ python main.py --env .env.example --compare-example
 ```bash
 pytest tests/ -v
 flake8 main.py src schemas tests scripts
+```
+
+---
+
+## Testing & Quality Assurance
+
+Run the test suite and edge-case validation suite locally:
+
+```bash
+# Run full pytest suite
+pytest tests/ -v
+
+# Run automated test harness with fixture ingestion and diagnostics
+python scripts/run_unit_tests.py
+
+# Run pre-flight integration smoke tests
+bash scripts/smoke_test.sh
 ```
 
 ---
