@@ -1,10 +1,12 @@
 # env-validator-cli
 
-[![Env Validator CI](https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml/badge.svg)](https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml)
-[![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](docs/TEST_COVERAGE.md)
-[![Python 3.9+](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Code Style: Flake8](https://img.shields.io/badge/code%20style-flake8-brightgreen.svg)](https://flake8.pycqa.org/)
+<p align="left">
+  <a href="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml"><img src="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml/badge.svg" alt="Env Validator CI" /></a>
+  <a href="docs/TEST_COVERAGE.md"><img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Test Coverage" /></a>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg" alt="Python Versions" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT" /></a>
+  <a href="https://flake8.pycqa.org/"><img src="https://img.shields.io/badge/code%20style-flake8-brightgreen.svg" alt="Code Style: Flake8" /></a>
+</p>
 
 > **Industry-grade, zero-dependency CLI tool to validate, cast, and synchronize `.env` configurations against strict schemas and `.env.example` templates.**
 
