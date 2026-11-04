@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+from contextlib import contextmanager
 from pathlib import Path
-from typing import Mapping, Optional
+from tempfile import TemporaryDirectory
+from typing import Iterator, Mapping, Optional
 
 
 def write_temp_env(
@@ -35,3 +37,14 @@ def create_sample_env_content(overrides: Optional[Mapping[str, str]] = None) -> 
     if overrides:
         base.update(overrides)
     return "\n".join(f"{k}={v}" for k, v in base.items()) + "\n"
+
+
+@contextmanager
+def temporary_env_file(
+    variables: Mapping[str, str],
+    filename: str = ".env.temp",
+) -> Iterator[Path]:
+    """Context manager creating a self-cleaning temporary environment file."""
+    with TemporaryDirectory() as tmpdir:
+        temp_path = write_temp_env(Path(tmpdir), variables, filename)
+        yield temp_path
