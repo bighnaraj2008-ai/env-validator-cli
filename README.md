@@ -48,7 +48,7 @@ env-validator-cli/
 └── tests/                         # Unit tests, edge cases, fixtures & benchmarks
 ```
 
-For documentation and specifications, see [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md).
+For documentation and specifications, see [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md), [`docs/FIXTURE_GUIDE.md`](docs/FIXTURE_GUIDE.md).
 
 ---
 
