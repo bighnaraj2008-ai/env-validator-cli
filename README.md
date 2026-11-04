@@ -119,7 +119,8 @@ bash scripts/smoke_test.sh
 
 ## Contributing & Security
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development guidelines and [`SECURITY.md`](SECURITY.md) for responsible disclosure.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development guidelines, testing standards, and [`SECURITY.md`](SECURITY.md) for responsible disclosure.
+When contributing new validation rules, ensure matching test cases are added to `tests/edge_cases/` and documented in `docs/EDGE_CASES.md`.
 
 ---
 
