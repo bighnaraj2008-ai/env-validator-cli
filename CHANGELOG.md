@@ -7,13 +7,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [1.0.0] - 2026-11-05
 
 ### Added
-- Authored comprehensive YAML schema authoring guide (`docs/SCHEMA_AUTHORING.md`).
-- Added full command-line usage and exit code guide (`docs/CLI_USAGE.md`).
-- Added system architecture Mermaid diagrams (`docs/ARCHITECTURE.mmd`).
-- Authored API reference guide (`docs/API_REFERENCE.md`) for core parser and schema engine.
-- Added production deployment runbook (`docs/DEPLOYMENT_GUIDE.md`) and diagnostics playbook (`docs/DIAGNOSTICS.md`).
-- Added security hardening guide (`docs/SECURITY_HARDENING.md`), contributors guide (`docs/CONTRIBUTORS_GUIDE.md`), and FAQ (`docs/FAQ.md`).
-- Added configuration glossary (`docs/GLOSSARY.md`), benchmark reports (`docs/BENCHMARK_REPORT.md`), and incident playbook (`docs/INCIDENT_PLAYBOOK.md`).
+- **Core Architecture & Specifications**:
+  - Authored comprehensive YAML schema authoring guide (`docs/SCHEMA_AUTHORING.md`).
+  - Added full command-line usage and exit code guide (`docs/CLI_USAGE.md`).
+  - Added system architecture Mermaid diagrams (`docs/ARCHITECTURE.mmd`).
+  - Authored API reference guide (`docs/API_REFERENCE.md`) for core parser and schema engine.
+- **Operations & Runbooks**:
+  - Added production deployment runbook (`docs/DEPLOYMENT_GUIDE.md`) and diagnostics playbook (`docs/DIAGNOSTICS.md`).
+  - Added security hardening guide (`docs/SECURITY_HARDENING.md`), contributors guide (`docs/CONTRIBUTORS_GUIDE.md`), and FAQ (`docs/FAQ.md`).
+  - Added configuration glossary (`docs/GLOSSARY.md`), benchmark reports (`docs/BENCHMARK_REPORT.md`), and incident playbook (`docs/INCIDENT_PLAYBOOK.md`).
+  - Added version migration guide (`docs/MIGRATION_V2.md`) and environment governance guide (`docs/ENV_GOVERNANCE.md`).
+- **Automation & Tooling**:
+  - Added automated markdown link validator script (`scripts/validate_docs.py`) and CI workflow (`.github/workflows/docs_check.yml`).
+  - Added schema documentation generator script (`scripts/generate_schema_docs.py`).
+  - Added documentation syntax and structure unit tests (`tests/docs/test_markdown_syntax.py`).
 
 ## [0.3.0] - 2026-11-04
 
@@ -37,4 +44,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added CLI automation wrappers (`scripts/validate_env.py`, `scripts/generate_template.py`, `scripts/smoke_test.sh`).
 - Configured GitHub Actions CI matrix across Python 3.9-3.12 with Flake8 and Pytest.
 
-<!-- Day 2 Test Coverage & Fixture Improvements Sprint Completed -->
+<!-- Day 3 Advanced Documentation Sprint Finalized -->
