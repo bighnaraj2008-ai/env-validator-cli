@@ -4,16 +4,29 @@ All notable changes to `env-validator-cli` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.0] - 2026-11-05
+
+### Added
+- Authored comprehensive YAML schema authoring guide (`docs/SCHEMA_AUTHORING.md`).
+- Added full command-line usage and exit code guide (`docs/CLI_USAGE.md`).
+- Added system architecture Mermaid diagrams (`docs/ARCHITECTURE.mmd`).
+- Authored API reference guide (`docs/API_REFERENCE.md`) for core parser and schema engine.
+- Added production deployment runbook (`docs/DEPLOYMENT_GUIDE.md`) and diagnostics playbook (`docs/DIAGNOSTICS.md`).
+- Added security hardening guide (`docs/SECURITY_HARDENING.md`), contributors guide (`docs/CONTRIBUTORS_GUIDE.md`), and FAQ (`docs/FAQ.md`).
+- Added configuration glossary (`docs/GLOSSARY.md`), benchmark reports (`docs/BENCHMARK_REPORT.md`), and incident playbook (`docs/INCIDENT_PLAYBOOK.md`).
+
 ## [0.3.0] - 2026-11-04
 
 ### Added
-- **Test Fixtures Suite**: Initialized comprehensive mock environment fixtures (`valid.env`, `malformed.env`, `missing_required.env`, `invalid_types.env`).
-- **Edge-Case Validation**: Implemented dedicated tests for unquoted special characters, duplicate key overrides, integer/number casting limits, and strict boolean coercion.
-- **Harness & Assertion Helpers**: Added fixture generation utilities (`tests/harness/mock_env.py`) and custom assertion macros with rich failure diagnostics (`tests/harness/assertions.py`).
-- **Automation & Reporting**: Developed `scripts/run_unit_tests.py` with fixture ingestion telemetry and `scripts/generate_test_report.py` for automated Markdown reports.
-- **Performance & Stress Telemetry**: Built micro-benchmarks (`tests/performance/test_parser_perf.py`), 5,000-variable stress tests (`tests/stress/test_env_storm.py`), and memory profile verification (`tests/memory/test_memory_safety.py`).
-- **CI/CD Automation**: Introduced GitHub Actions workflow `.github/workflows/test_coverage.yml` validating coverage and profiling across Python 3.9-3.12.
-- **Documentation**: Authored `docs/TEST_COVERAGE.md`, `docs/EDGE_CASES.md`, `docs/FIXTURE_GUIDE.md`, and `docs/BENCHMARK_TEMPLATE.md`.
+- Expanded test suite with comprehensive fixture ingestion tests (`tests/fixtures/valid.env`, `malformed.env`, `missing_required.env`, `invalid_types.env`).
+- Added edge-case test suites covering unquoted special characters, duplicate key resolution, integer casting bounds, and boolean parsing.
+- Added mock environment fixture generator (`tests/harness/mock_env.py`) and assertion helpers (`tests/harness/assertions.py`).
+- Added test execution runner script (`scripts/run_unit_tests.py`) and Markdown report generator (`scripts/generate_test_report.py`).
+- Added performance benchmarks (`tests/performance/test_parser_perf.py`), stress tests (`tests/stress/test_env_storm.py`), and memory safety verification (`tests/memory/test_memory_safety.py`).
+- Added automated profiler script (`scripts/run_profiler.py`) and GitHub Actions test coverage workflow (`.github/workflows/test_coverage.yml`).
+- Added integration test suite (`tests/integration/test_cli_workflow.py`) and test configuration modules (`src/validator/test_config.py`, `src/validator/test_logger.py`).
+- Added fixture generator utility (`examples/custom_fixture_generator.py`) and fixture checksum validator (`scripts/validate_fixtures.py`).
+- Added artifact cleaner script (`scripts/clean_test_artifacts.py`) and comprehensive documentation (`docs/TEST_COVERAGE.md`, `docs/EDGE_CASES.md`, `docs/FIXTURE_GUIDE.md`, `docs/BENCHMARK_TEMPLATE.md`).
 
 ## [0.2.0] - 2026-11-03
 
