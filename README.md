@@ -1,4 +1,4 @@
-# env-validator-cli
+# ⚙️ env-validator-cli
 
 <p align="left">
   <a href="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml"><img src="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml/badge.svg" alt="Env Validator CI" /></a>
@@ -51,7 +51,8 @@ env-validator-cli/
 └── tests/                         # Unit tests, edge cases, fixtures & benchmarks
 ```
 
-For documentation and specifications, see [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md), [`docs/FIXTURE_GUIDE.md`](docs/FIXTURE_GUIDE.md), [`docs/BENCHMARK_TEMPLATE.md`](docs/BENCHMARK_TEMPLATE.md).
+For documentation and specifications, see [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md), [`docs/FIXTURE_GUIDE.md`](docs/FIXTURE_GUIDE.md), [`docs/BENCHMARK_TEMPLATE.md`](docs/BENCHMARK_TEMPLATE.md).
+
 
 ---
 
@@ -130,16 +131,6 @@ When contributing new validation rules, ensure matching test cases are added to 
 
 Licensed under the MIT License (Open Source) — see [`LICENSE`](LICENSE) for complete copyright terms.
 
+---
+
 <!-- Project 3 (env-validator-cli) Day 2 Test Coverage & Fixture Improvements Sprint Completed -->
-
-### Day 2 Test Suite Reference Summary
-
-| Test Layer | Directory / File | Description |
-|---|---|---|
-| Fixture Validation | `tests/test_fixtures.py` | Ingests `.env` fixtures and verifies schema rejection/acceptance |
-| Edge Cases | `tests/edge_cases/` | Special characters, duplicate keys, bounds, booleans |
-| Performance | `tests/performance/` | High-throughput parsing micro-benchmarks (< 500ms) |
-| Stress Tests | `tests/stress/` | High-volume variable storm (5,000 keys) and payload limits |
-| Memory Profile | `tests/memory/` | Bounded memory usage verification (< 10MB peak) |
-| Automation Harness | `scripts/run_unit_tests.py` | Test suite execution and telemetry reporting |
-
