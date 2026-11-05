@@ -39,3 +39,17 @@ python main.py [OPTIONS]
   run: |
     python main.py --env .env.staging --strict
 ```
+
+---
+
+## 3. Automated Template Generation & Drift Detection
+
+Synchronize `.env.example` templates directly from your schema:
+
+```bash
+# Generate a fresh .env.example with descriptive comments
+python scripts/generate_template.py --output .env.example
+
+# Compare local .env against .env.example to detect key drift
+python scripts/validate_env.py --env .env --compare-example --example .env.example
+```
