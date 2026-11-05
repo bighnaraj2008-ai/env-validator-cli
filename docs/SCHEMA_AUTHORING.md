@@ -49,3 +49,33 @@ Enforce minimal character boundaries for secrets and keys:
     type: string
     min_length: 32
 ```
+
+---
+
+## 3. Complex Schema Examples
+
+### Microservice Production Contract
+```yaml
+name: orders-api
+description: Production environment configuration schema
+fields:
+  - name: SERVICE_TIER
+    required: true
+    type: string
+    pattern: "^(development|staging|production)$"
+  - name: HTTP_PORT
+    required: true
+    type: integer
+  - name: CACHE_TTL_SECONDS
+    required: false
+    type: integer
+    default: "300"
+  - name: ENABLE_PROMETHEUS
+    required: false
+    type: boolean
+    default: "true"
+  - name: KAFKA_BOOTSTRAP_SERVERS
+    required: true
+    type: string
+    pattern: "^[a-zA-Z0-9.-]+:[0-9]+(,[a-zA-Z0-9.-]+:[0-9]+)*$"
+```
