@@ -1,23 +1,160 @@
+# env-validator-cli — System Architecture (Mermaid)
+
+This file contains Mermaid diagrams for the validation data flow, component
+layout, and decision logic. Render with any Mermaid-compatible viewer
+(GitHub, GitLab, Obsidian, VS Code Mermaid plugin, mermaid-cli, etc.).
+
+---
+
+## 1. Data-Flow Sequence Diagram
+
+```mermaid
 sequenceDiagram
     autonumber
-    actor User as Developer / CI Runner
-    participant CLI as main.py (CLI)
-    participant Parser as src.validator.parser
-    participant Schema as src.validator.schema
-    participant Rules as src.validator.rules
-    participant Reporter as src.validator.reporter
+    actor User
+    participant CLI as main.py CLI
+    participant Parser as src/validator/parser.py
+    participant Schema as src/validator/schema.py
+    participant Rules as src/validator/rules.py
+    participant Reporter as src/validator/reporter.py
+    participant Output as Terminal / CI Log
 
-    User->>CLI: python main.py --env .env --strict
-    CLI->>Parser: parse_env_file(.env)
-    Parser-->>CLI: ParsedEnv (values, source, lines)
-    CLI->>Schema: validate(values, strict=True)
-    loop For each schema field
-        Schema->>Rules: RequiredRule.check()
-        Schema->>Rules: TypeCastRule.check()
-        Schema->>Rules: PatternRule.check()
-        Schema->>Rules: MinLengthRule.check()
+    User->>CLI: python main.py --env .env --format json
+    CLI->>Parser: parse_env_file(".env")
+    Parser-->>CLI: ParsedEnv{values, source, line_count}
+    CLI->>Schema: Schema.validate(values, config)
+    Schema->>Rules: For each field: apply rules pipeline
+    Rules-->>Schema: ValidationResult (passed/failed, code, expected, actual)
+    Schema-->>CLI: ValidationReport{errors, warnings, passed}
+    CLI->>Reporter: ConsoleReporter(report, format=json)
+    Reporter-->>Output: JSON report + exit code
+    alt validation passed
+        Output-->>User: Exit code 0 (PASS)
+    else validation failed
+        Output-->>User: Exit code 1 (FAIL) with error details
+    else file / usage error
+        Output-->>User: Exit code 2
     end
-    Rules-->>Schema: ValidationResults
-    Schema-->>CLI: ValidationReport (passed, errors, warnings)
-    CLI->>Reporter: format_report(ValidationReport)
-    Reporter-->>User: Console Report & Exit Code (0 / 1 / 2)
+```
+
+### Flow summary
+
+1. **User** invokes the CLI with a target `.env` and optional flags.
+2. **Parser** reads the file, strips comments/BOM/`export` prefixes, splits on
+   the first `=`, and unquotes values → `ParsedEnv`.
+3. **Schema** looks up each declared field and runs the rule pipeline
+   (`Required → TypeCast → Pattern → MinLength`).
+4. **Rules** return per-field `ValidationResult` objects carrying
+   `passed`, `code`, `message`, `expected`, and `actual`.
+5. **Schema** aggregates results into a `ValidationReport`; in strict mode it
+   also flags undeclared keys as errors.
+6. **Reporter** renders text or JSON and returns the process exit code.
+
+---
+
+## 2. Component Diagram
+
+```mermaid
+graph TD
+    %% External inputs
+    EnvFile[(".env file on disk")]
+    YAMLSchema[("schemas/env_schema.yaml<br/>Declarative YAML contract")]
+    PySchema[("schemas/env_schema.py<br/>Python ENV_SCHEMA")]
+    CLIArgs["CLI flags:<br/>--env --strict --format --schema ..."]
+
+    %% Entry
+    CLI["main.py<br/>argparse entrypoint"]
+
+    %% Core modules
+    Parser["src/validator/parser.py<br/>parse_env_file() → ParsedEnv"]
+    SchemaEngine["src/validator/schema.py<br/>Schema.validate() → ValidationReport"]
+    Rules["src/validator/rules.py<br/>Required / TypeCast / Pattern / MinLength"]
+    Reporter["src/validator/reporter.py<br/>ConsoleReporter text / JSON"]
+    Config["src/config/settings.py<br/>ValidationConfig + EnvFieldSchema + EnvType"]
+    Errors["src/config/errors.py<br/>Exception hierarchy + ValidationIssue"]
+
+    %% Outputs
+    TextOut["Human-readable text report<br/>(TTY colors, emojis)"]
+    JSONOut["Machine-readable JSON report<br/>(CI/CD log aggregation)"]
+    ExitCode["Process exit code<br/>0 = PASS, 1 = FAIL, 2 = ERROR"]
+
+    %% Data flow
+    EnvFile --> Parser
+    YAMLSchema -->|load_yaml_schema| SchemaEngine
+    PySchema -->|ENV_SCHEMA / SchemaCatalog| SchemaEngine
+    CLIArgs --> CLI
+    CLI --> Parser
+    CLI --> SchemaEngine
+    Parser -->|ParsedEnv values| SchemaEngine
+    Config --> SchemaEngine
+    Config --> Reporter
+    SchemaEngine -->|per-field values| Rules
+    Rules -->|ValidationResult| SchemaEngine
+    SchemaEngine -->|ValidationReport| Reporter
+    Reporter --> TextOut
+    Reporter --> JSONOut
+    Reporter --> ExitCode
+    Errors -.-> Parser
+    Errors -.-> SchemaEngine
+    Errors -.-> Rules
+    Errors -.-> Reporter
+```
+
+---
+
+## 3. Validation Decision Flowchart
+
+```mermaid
+flowchart TD
+    Start((Start validation))
+    Parse[Parse .env file]
+    ParseErr{Parse error?<br/>(missing file, bad syntax)}
+    Exit2[Exit code 2<br/>File / usage error]
+    SchemaCheck[Validate each declared field]
+    RulePipe[Rule pipeline:<br/>Required → TypeCast → Pattern → MinLength]
+    AnyErr{Any rule errors?}
+    Strict{Strict mode<br/>(--strict)?}
+    StrictErr[Flag undeclared keys<br/>as errors]
+    Report[Build ValidationReport<br/>errors + warnings + passed]
+    Format{Output format?}
+    JSON[JSON report]
+    Text[Colored text report]
+    Passed{Report passed?<br/>(no errors)}
+    Exit0[Exit code 0 — PASS]
+    Exit1[Exit code 1 — FAIL]
+
+    Start --> Parse
+    Parse --> ParseErr
+    ParseErr -->|Yes| Exit2
+    ParseErr -->|No| SchemaCheck
+    SchemaCheck --> RulePipe
+    RulePipe --> AnyErr
+    AnyErr -->|Yes| Strict
+    AnyErr -->|No| Report
+    Strict -->|Yes| StrictErr
+    Strict -->|No| Report
+    StrictErr --> Report
+    Report --> Format
+    Format -->|json| JSON
+    Format -->|text| Text
+    JSON --> Passed
+    Text --> Passed
+    Passed -->|Yes| Exit0
+    Passed -->|No| Exit1
+```
+
+---
+
+## 4. Module Responsibility Matrix
+
+| Module | Responsibility | Key public API |
+|:-------|:---------------|:---------------|
+| `main.py` | CLI argument parsing, orchestration, exit codes | `main(argv) → int` |
+| `src/validator/parser.py` | `.env` tokenization → key/value dict | `parse_env_file(path) → ParsedEnv` |
+| `src/validator/schema.py` | Field declarations + rule pipeline + report | `Schema.validate(values, config) → ValidationReport` |
+| `src/validator/rules.py` | Per-rule validation logic | `Rule.check(key, value, schema) → ValidationResult` |
+| `src/validator/reporter.py` | Text/JSON rendering, exit-code mapping | `ConsoleReporter.report(report) → int` |
+| `src/config/settings.py` | Type constants, field schema, runtime config | `EnvType`, `EnvFieldSchema`, `ValidationConfig` |
+| `src/config/errors.py` | Exception hierarchy, structured issue | `ValidationIssue(key, code, message, …)` |
+| `schemas/env_schema.*` | Default environment contract | `ENV_SCHEMA`, `SchemaCatalog` |
+| `schemas/loader.py` | YAML schema loading | `load_yaml_schema(path) → Schema` |
