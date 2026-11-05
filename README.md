@@ -26,30 +26,30 @@ variable against strict type, regex, length, and required rules.
 
 ## Modular Architecture
 
-```text
-env-validator-cli/
-├── main.py                        # CLI entrypoint (argparse -> modules)
-├── schemas/
-│   ├── env_schema.py              # Default schema contract (ENV_SCHEMA)
-│   ├── env_schema.yaml            # Declarative YAML schema template
-│   └── loader.py                  # YAML schema loader
-├── src/
-│   ├── config/
-│   │   ├── errors.py              # Custom exception hierarchy + ValidationIssue
-│   │   └── settings.py            # EnvType, EnvFieldSchema, ValidationConfig
-│   └── validator/
-│       ├── parser.py              # Dependency-free .env parser
-│       ├── rules.py               # Required, TypeCast, Pattern, MinLength rules
-│       ├── schema.py              # Schema validation engine + ValidationReport
-│       ├── reporter.py            # Console text + JSON reporter
-│       └── cli.py                 # CLI delegation module
-├── scripts/
-│   ├── validate_env.py            # CLI wrapper script
-│   ├── generate_template.py       # .env.example template generator
-│   ├── run_unit_tests.py          # Automated test harness runner
-│   └── smoke_test.sh              # Pre-flight integration smoke check
-└── tests/                         # Unit tests, edge cases, fixtures & benchmarks
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as Developer / CI
+    participant CLI as main.py
+    participant Parser as src.validator.parser
+    participant Schema as src.validator.schema
+    participant Rules as src.validator.rules
+    participant Reporter as src.validator.reporter
+
+    User->>CLI: python main.py --env .env --strict
+    CLI->>Parser: parse_env_file(.env)
+    Parser-->>CLI: ParsedEnv
+    CLI->>Schema: validate(values, strict=True)
+    loop For each schema field
+        Schema->>Rules: check()
+    end
+    Rules-->>Schema: ValidationResults
+    Schema-->>CLI: ValidationReport
+    CLI->>Reporter: ConsoleReporter.report()
+    Reporter-->>User: Console output & Exit code
 ```
+
+See [`docs/ARCHITECTURE.mmd`](docs/ARCHITECTURE.mmd) for complete architecture diagrams and component matrices.
 
 For documentation and specifications, see [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md), [`docs/FIXTURE_GUIDE.md`](docs/FIXTURE_GUIDE.md), [`docs/BENCHMARK_TEMPLATE.md`](docs/BENCHMARK_TEMPLATE.md).
 
