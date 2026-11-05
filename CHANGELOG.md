@@ -8,15 +8,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - **Core Architecture & Specifications**:
-  - Authored comprehensive YAML schema authoring guide (`docs/SCHEMA_AUTHORING.md`).
-  - Added full command-line usage and exit code guide (`docs/CLI_USAGE.md`).
-  - Added system architecture Mermaid diagrams (`docs/ARCHITECTURE.mmd`).
-  - Authored API reference guide (`docs/API_REFERENCE.md`) for core parser and schema engine.
+  - Authored comprehensive YAML schema authoring guide ([`docs/SCHEMA_AUTHORING.md`](docs/SCHEMA_AUTHORING.md)).
+  - Added full command-line usage and exit code guide ([`docs/CLI_USAGE.md`](docs/CLI_USAGE.md)).
+  - Added system architecture Mermaid diagrams ([`docs/ARCHITECTURE.mmd`](docs/ARCHITECTURE.mmd)).
+  - Authored API reference guide ([`docs/API_REFERENCE.md`](docs/API_REFERENCE.md)) for core parser and schema engine.
 - **Operations & Runbooks**:
-  - Added production deployment runbook (`docs/DEPLOYMENT_GUIDE.md`) and diagnostics playbook (`docs/DIAGNOSTICS.md`).
-  - Added security hardening guide (`docs/SECURITY_HARDENING.md`), contributors guide (`docs/CONTRIBUTORS_GUIDE.md`), and FAQ (`docs/FAQ.md`).
-  - Added configuration glossary (`docs/GLOSSARY.md`), benchmark reports (`docs/BENCHMARK_REPORT.md`), and incident playbook (`docs/INCIDENT_PLAYBOOK.md`).
-  - Added version migration guide (`docs/MIGRATION_V2.md`) and environment governance guide (`docs/ENV_GOVERNANCE.md`).
+  - Added production deployment runbook ([`docs/DEPLOYMENT_GUIDE.md`](docs/DEPLOYMENT_GUIDE.md)) and diagnostics playbook ([`docs/DIAGNOSTICS.md`](docs/DIAGNOSTICS.md)).
+  - Added security hardening guide ([`docs/SECURITY_HARDENING.md`](docs/SECURITY_HARDENING.md)), contributors guide ([`docs/CONTRIBUTORS_GUIDE.md`](docs/CONTRIBUTORS_GUIDE.md)), and FAQ ([`docs/FAQ.md`](docs/FAQ.md)).
+  - Added configuration glossary ([`docs/GLOSSARY.md`](docs/GLOSSARY.md)), benchmark reports ([`docs/BENCHMARK_REPORT.md`](docs/BENCHMARK_REPORT.md)), and incident playbook ([`docs/INCIDENT_PLAYBOOK.md`](docs/INCIDENT_PLAYBOOK.md)).
+  - Added version migration guide ([`docs/MIGRATION_V2.md`](docs/MIGRATION_V2.md)) and environment governance guide ([`docs/ENV_GOVERNANCE.md`](docs/ENV_GOVERNANCE.md)).
 - **Automation & Tooling**:
   - Added automated markdown link validator script (`scripts/validate_docs.py`) and CI workflow (`.github/workflows/docs_check.yml`).
   - Added schema documentation generator script (`scripts/generate_schema_docs.py`).
@@ -44,4 +44,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added CLI automation wrappers (`scripts/validate_env.py`, `scripts/generate_template.py`, `scripts/smoke_test.sh`).
 - Configured GitHub Actions CI matrix across Python 3.9-3.12 with Flake8 and Pytest.
 
-<!-- Day 3 Advanced Documentation Sprint Finalized -->
+<!-- Day 3 Advanced Documentation Sprint Finalized & Validated -->
