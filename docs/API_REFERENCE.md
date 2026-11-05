@@ -27,3 +27,19 @@ Represents an environment contract against which variable dictionaries are valid
 #### Methods:
 - `validate(values: Mapping[str, str], config: ValidationConfig) -> ValidationReport`
   Runs configured rules across declared fields and reports status.
+
+---
+
+## 3. Validation Rules (`src.validator.rules`)
+
+### `RequiredRule`
+Flags declared keys whose values are missing or empty string.
+
+### `TypeCastRule`
+Ensures string values can be cast to `integer`, `boolean`, or `number`.
+
+### `PatternRule`
+Validates values against regex patterns declared in the schema.
+
+### `MinLengthRule`
+Verifies character string length meets or exceeds minimum boundaries.
