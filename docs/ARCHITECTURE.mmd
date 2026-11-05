@@ -1,0 +1,23 @@
+sequenceDiagram
+    autonumber
+    actor User as Developer / CI Runner
+    participant CLI as main.py (CLI)
+    participant Parser as src.validator.parser
+    participant Schema as src.validator.schema
+    participant Rules as src.validator.rules
+    participant Reporter as src.validator.reporter
+
+    User->>CLI: python main.py --env .env --strict
+    CLI->>Parser: parse_env_file(.env)
+    Parser-->>CLI: ParsedEnv (values, source, lines)
+    CLI->>Schema: validate(values, strict=True)
+    loop For each schema field
+        Schema->>Rules: RequiredRule.check()
+        Schema->>Rules: TypeCastRule.check()
+        Schema->>Rules: PatternRule.check()
+        Schema->>Rules: MinLengthRule.check()
+    end
+    Rules-->>Schema: ValidationResults
+    Schema-->>CLI: ValidationReport (passed, errors, warnings)
+    CLI->>Reporter: format_report(ValidationReport)
+    Reporter-->>User: Console Report & Exit Code (0 / 1 / 2)
