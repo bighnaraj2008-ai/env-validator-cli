@@ -70,6 +70,7 @@ For documentation and specifications, see [`docs/SCHEMA_AUTHORING.md`](docs/SCHE
 For comprehensive CLI flag references and exit codes, see [`docs/CLI_USAGE.md`](docs/CLI_USAGE.md).
 For Python programmatic integration, consult the [`docs/API_REFERENCE.md`](docs/API_REFERENCE.md).
 Upgrading from older schema contracts? Follow the [`docs/MIGRATION_V2.md`](docs/MIGRATION_V2.md) migration guide.
+For SOC2 / enterprise configuration compliance policies, review [`docs/ENV_GOVERNANCE.md`](docs/ENV_GOVERNANCE.md).
 
 ---
 
