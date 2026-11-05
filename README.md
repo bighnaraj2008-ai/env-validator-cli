@@ -133,6 +133,7 @@ bash scripts/smoke_test.sh
 - **`TypeCastError` on booleans:** Accepted truthy/falsy strings are `1/0`, `true/false`, `yes/no`, and `on/off` (case-insensitive).
 - **Fixture validation errors:** Ensure files in `tests/fixtures/` retain exact character encodings (UTF-8 without BOM). Run `python scripts/validate_fixtures.py` to check SHA-256 integrity.
 - **Pytest collection warnings:** Ensure the local test environment has `pytest` and `pyyaml` installed (`pip install -e ".[dev]"`).
+- **Diagnostic Playbook:** For in-depth error triage playbooks, see [`docs/DIAGNOSTICS.md`](docs/DIAGNOSTICS.md) and [`docs/INCIDENT_PLAYBOOK.md`](docs/INCIDENT_PLAYBOOK.md).
 
 ---
 
