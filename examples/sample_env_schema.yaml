@@ -1,0 +1,25 @@
+# Sample Declarative YAML Environment Validation Schema
+name: sample-service
+description: Sample configuration contract for microservice deployment
+fields:
+  - name: APP_NAME
+    required: true
+    type: string
+    description: Name of the microservice
+  - name: PORT
+    required: true
+    type: integer
+    default: "8080"
+    description: Listening HTTP TCP port
+  - name: DEBUG
+    required: false
+    type: boolean
+    default: "false"
+  - name: DATABASE_URL
+    required: true
+    type: string
+    pattern: "^(postgres|postgresql)://.+"
+  - name: API_SECRET
+    required: true
+    type: string
+    min_length: 16
