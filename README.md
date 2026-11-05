@@ -155,6 +155,23 @@ Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bigh
 
 ---
 
+## Documentation Index
+
+| Guide / Runbook | Description |
+|---|---|
+| [`docs/SCHEMA_AUTHORING.md`](docs/SCHEMA_AUTHORING.md) | Declarative YAML schema specification and constraint rules |
+| [`docs/CLI_USAGE.md`](docs/CLI_USAGE.md) | CLI arguments, strict flags, JSON formats, and exit codes |
+| [`docs/ARCHITECTURE.mmd`](docs/ARCHITECTURE.mmd) | Sequence and component architecture diagrams |
+| [`docs/API_REFERENCE.md`](docs/API_REFERENCE.md) | Python API reference for parser and schema engine |
+| [`docs/DEPLOYMENT_GUIDE.md`](docs/DEPLOYMENT_GUIDE.md) | Production CI/CD pipelines (GitHub Actions, Docker, K8s) |
+| [`docs/DIAGNOSTICS.md`](docs/DIAGNOSTICS.md) | Configuration anomaly diagnostic playbook |
+| [`docs/SECURITY_HARDENING.md`](docs/SECURITY_HARDENING.md) | Secret hygiene and leakage prevention protocols |
+| [`docs/CONTRIBUTORS_GUIDE.md`](docs/CONTRIBUTORS_GUIDE.md) | Custom rule authoring and test standards |
+| [`docs/ENV_GOVERNANCE.md`](docs/ENV_GOVERNANCE.md) | SOC2 / ISO 27001 configuration compliance |
+| [`docs/MIGRATION_V2.md`](docs/MIGRATION_V2.md) | Schema version migration guidelines |
+
+---
+
 <!-- Project 3 (env-validator-cli) Day 3 Advanced Documentation Sprint In-Progress -->
 
 ### Day 3 Documentation Milestone Summary
