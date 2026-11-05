@@ -18,5 +18,24 @@ python main.py [OPTIONS]
 | `--env` | `PATH` | Path to target `.env` file | `.env` |
 | `--schema` | `PATH` | Path to declarative YAML schema | `schemas/env_schema.yaml` |
 | `--strict` | None | Reject undeclared variables | Disabled |
-| `--format` | `text/json` | Telemetry rendering output mode | `text` |
+| `--format` | `text|json` | Telemetry rendering output mode | `text` |
 | `--list-schemas` | None | Print available built-in schemas | Disabled |
+
+---
+
+## 2. Exit Codes & CI/CD Pipeline Automation
+
+`env-validator-cli` returns POSIX standard process exit codes to halt failing builds:
+
+| Exit Code | Classification | Meaning | Action Required |
+|---|---|---|---|
+| `0` | **PASS** | Configuration valid | Proceed with container build or service boot |
+| `1` | **FAIL** | Validation errors found | Check missing variables or type mismatch errors |
+| `2` | **ERROR** | File or runtime error | Verify file paths, permissions, and arguments |
+
+### GitHub Actions Step Example
+```yaml
+- name: Validate Environment Configuration
+  run: |
+    python main.py --env .env.staging --strict
+```
