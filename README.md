@@ -147,7 +147,7 @@ For custom validation rule contribution instructions, see [`docs/CONTRIBUTORS_GU
 
 ## License
 
-Licensed under the MIT License (Open Source) — see [`LICENSE`](LICENSE) for complete copyright terms.
+Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bighnaraj2008-ai.
 
 ---
 
