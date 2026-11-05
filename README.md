@@ -68,6 +68,7 @@ See [`docs/ARCHITECTURE.mmd`](docs/ARCHITECTURE.mmd) for complete architecture d
 For documentation and specifications, see [`docs/SCHEMA_AUTHORING.md`](docs/SCHEMA_AUTHORING.md) and [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md), [`docs/FIXTURE_GUIDE.md`](docs/FIXTURE_GUIDE.md), [`docs/BENCHMARK_TEMPLATE.md`](docs/BENCHMARK_TEMPLATE.md).
 
 For comprehensive CLI flag references and exit codes, see [`docs/CLI_USAGE.md`](docs/CLI_USAGE.md).
+For Python programmatic integration, consult the [`docs/API_REFERENCE.md`](docs/API_REFERENCE.md).
 
 ---
 
