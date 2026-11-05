@@ -24,6 +24,20 @@ variable against strict type, regex, length, and required rules.
 
 ---
 
+## Table of Contents
+
+1. [Quickstart](#quickstart-guide)
+2. [Modular Architecture](#modular-architecture)
+3. [Schema Authoring](#schema-authoring)
+4. [Command-Line Usage](#command-line-usage)
+5. [Testing & Quality Assurance](#testing--quality-assurance)
+6. [Troubleshooting](#troubleshooting)
+7. [Documentation Index](#documentation-index)
+8. [Contributing & Security](#contributing--security)
+9. [License](#license)
+
+---
+
 ## Modular Architecture
 
 ```mermaid
