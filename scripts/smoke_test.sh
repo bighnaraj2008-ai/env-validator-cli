@@ -15,4 +15,7 @@ echo "==> Running test suite verification"
 "$PYTHON_BIN" scripts/run_unit_tests.py
 "$PYTHON_BIN" scripts/validate_fixtures.py
 
+echo "==> Running documentation link verification"
+"$PYTHON_BIN" scripts/validate_docs.py
+
 echo "==> Smoke tests passed cleanly!"
