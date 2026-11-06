@@ -1,4 +1,7 @@
 [flake8]
-max-line-length = 120
 extend-ignore = E203, W503
-exclude = venv,.venv,__pycache__,.pytest_cache,build,dist,.git,.eggs
+select = E, W, F
+exclude = venv, .venv, __pycache__, .pytest_cache, build, dist, .git, .eggs, docs
+per-file-ignores =
+    __init__.py: F401
+    scripts/*: E501
