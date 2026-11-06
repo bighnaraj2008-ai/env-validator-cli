@@ -1,6 +1,7 @@
 # ⚙️ env-validator-cli
 
 <p align="left">
+  <a href="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/ci_validation.yml"><img src="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/ci_validation.yml/badge.svg" alt="CI Validation" /></a>
   <a href="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml"><img src="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml/badge.svg" alt="Env Validator CI" /></a>
   <a href="docs/TEST_COVERAGE.md"><img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Test Coverage" /></a>
   <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version 1.0.0" /></a>
@@ -18,7 +19,7 @@
 
 In modern cloud-native and 12-factor application architectures, environment variables
 drive configuration across environments (Local, Staging, Production). A frequent source
-of runtime crashes and deployment failures is **configuration drift**—missing keys,
+of runtime crashes and deployment failures is **configuration drift** - missing keys,
 malformed URLs, invalid integer ports, or short signing secrets.
 
 `env-validator-cli` catches misconfigurations before boot by validating every `.env`
@@ -67,7 +68,7 @@ sequenceDiagram
 
 See [`docs/ARCHITECTURE.mmd`](docs/ARCHITECTURE.mmd) for complete architecture diagrams and component matrices.
 
-For documentation and specifications, see [`docs/SCHEMA_AUTHORING.md`](docs/SCHEMA_AUTHORING.md) and [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md), [`docs/FIXTURE_GUIDE.md`](docs/FIXTURE_GUIDE.md), [`docs/BENCHMARK_TEMPLATE.md`](docs/BENCHMARK_TEMPLATE.md).
+For documentation and specifications, see [`docs/SCHEMA_AUTHORING.md`](docs/SCHEMA_AUTHORING.md) and [`docs/SCHEMA_GUIDE.md`](docs/SCHEMA_GUIDE.md), [`docs/ARCHITECTURE_REFACTOR.md`](docs/ARCHITECTURE_REFACTOR.md), [`docs/TEST_COVERAGE.md`](docs/TEST_COVERAGE.md), [`docs/EDGE_CASES.md`](docs/EDGE_CASES.md), [`docs/FIXTURE_GUIDE.md`](docs/FIXTURE_GUIDE.md), [`docs/BENCHMARK_TEMPLATE.md`](docs/BENCHMARK_TEMPLATE.md), and [`docs/CI_CD_PIPELINE.md`](docs/CI_CD_PIPELINE.md).
 
 For comprehensive CLI flag references and exit codes, see [`docs/CLI_USAGE.md`](docs/CLI_USAGE.md).
 For Python programmatic integration, consult the [`docs/API_REFERENCE.md`](docs/API_REFERENCE.md).
@@ -130,6 +131,27 @@ bash scripts/smoke_test.sh
 
 ---
 
+## CI/CD Pipeline
+
+Automated build, test, static analysis, and release workflows run on GitHub Actions:
+
+| Workflow | Trigger | Purpose |
+|:---------|:--------|:--------|
+| `ci_validation.yml` | push / PR to `main` | Build + test + lint across Python 3.9-3.12 |
+| `python_lint.yml` | PR to `main` | flake8 + black static analysis |
+| `release_package.yml` | push tag `v*` | Build wheel/sdist and publish to PyPI |
+| `test_coverage.yml` | push / PR to `main` | Coverage & performance profiling |
+| `docs_check.yml` | push / PR to `main` | Markdown link & syntax verification |
+
+The build matrix covers Python 3.9-3.12 on `ubuntu-latest`. Linting is
+enforced with flake8 (`.flake8`) and black (`[tool.black]` in `pyproject.toml`).
+Releases are published from version tags (`v*`).
+
+See [`docs/CI_CD_PIPELINE.md`](docs/CI_CD_PIPELINE.md) for the complete pipeline
+architecture, linting standards, build matrix, and local reproduction steps.
+
+---
+
 ## Troubleshooting
 
 - **`EnvFileNotFoundError`:** Ensure `--env` points to an existing file (default is `.env`; pass `--env .env.example` in CI).
@@ -170,19 +192,9 @@ Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bigh
 | [`docs/CONTRIBUTORS_GUIDE.md`](docs/CONTRIBUTORS_GUIDE.md) | Custom rule authoring and test standards |
 | [`docs/ENV_GOVERNANCE.md`](docs/ENV_GOVERNANCE.md) | SOC2 / ISO 27001 configuration compliance |
 | [`docs/MIGRATION_V2.md`](docs/MIGRATION_V2.md) | Schema version migration guidelines |
+| [`docs/CI_CD_PIPELINE.md`](docs/CI_CD_PIPELINE.md) | CI/CD automation pipeline and build matrix specifications |
+| [`docs/LINTER_STANDARDS.md`](docs/LINTER_STANDARDS.md) | Python coding standards and linter rule configuration |
 
 ---
 
 <!-- Project 3 (env-validator-cli) Day 3 Advanced Documentation Sprint Completed -->
-
-### Day 3 Documentation Milestone Summary
-
-| Layer | Documentation Deliverable | Status |
-|---|---|---|
-| Architecture | Sequence diagrams, component matrix, decision trees | Complete |
-| Specifications | YAML schema authoring, CLI flags, exit code reference | Complete |
-| Operations | CI/CD runbook, diagnostic triage, incident playbooks | Complete |
-| Governance | Secret security hardening, SOC2 compliance policies | Complete |
-
-
-*All documentation cross-links and markdown formats verified against Day 3 specification standards.*
