@@ -8,17 +8,21 @@ on:
 
 jobs:
   validate:
-    name: Build & Test (Python 3.12)
+    name: Build & Test (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.12
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python-version }}
           cache: "pip"
 
       - name: Install Dependencies
@@ -26,6 +30,21 @@ jobs:
           python -m pip install --upgrade pip
           pip install ".[dev]"
 
+      - name: Lint Python with Flake8
+        run: |
+          python -m flake8 main.py src schemas tests scripts
+
       - name: Run Unit Tests
         run: |
-          pytest tests/ -v
+          pytest tests/ -v --junitxml=test-results-${{ matrix.python-version }}.xml
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-results-${{ matrix.python-version }}
+          path: test-results-${{ matrix.python-version }}.xml
+
+      - name: Run Smoke Test
+        run: |
+          bash scripts/smoke_test.sh
