@@ -163,6 +163,7 @@ architecture, linting standards, build matrix, and local reproduction steps.
 - **Fixture validation errors:** Ensure files in `tests/fixtures/` retain exact character encodings (UTF-8 without BOM). Run `python scripts/validate_fixtures.py` to check SHA-256 integrity.
 - **Pytest collection warnings:** Ensure the local test environment has `pytest` and `pyyaml` installed (`pip install -e ".[dev]"`).
 - **Diagnostic Playbook:** For in-depth error triage playbooks, see [`docs/DIAGNOSTICS.md`](docs/DIAGNOSTICS.md) and [`docs/INCIDENT_PLAYBOOK.md`](docs/INCIDENT_PLAYBOOK.md).
+- **CI/CD Build Failures:** Consult [`docs/TROUBLESHOOTING_CI.md`](docs/TROUBLESHOOTING_CI.md) for diagnostics and fixes across the Python build matrix.
 
 ---
 
@@ -197,6 +198,7 @@ Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bigh
 | [`docs/MIGRATION_V2.md`](docs/MIGRATION_V2.md) | Schema version migration guidelines |
 | [`docs/CI_CD_PIPELINE.md`](docs/CI_CD_PIPELINE.md) | CI/CD automation pipeline and build matrix specifications |
 | [`docs/LINTER_STANDARDS.md`](docs/LINTER_STANDARDS.md) | Python coding standards and linter rule configuration |
+| [`docs/TROUBLESHOOTING_CI.md`](docs/TROUBLESHOOTING_CI.md) | Triage and resolutions for failing CI/CD validation builds |
 
 ---
 
