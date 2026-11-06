@@ -4,6 +4,24 @@ All notable changes to `env-validator-cli` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.1.0] - 2026-11-06
+
+### Added
+- **CI/CD Automation Pipelines**:
+  - Added multi-version Python build matrix workflow (`.github/workflows/ci_validation.yml`) spanning Python 3.9 through 3.12.
+  - Added dedicated static analysis workflow (`.github/workflows/python_lint.yml`) for flake8 and black.
+  - Added release packaging and wheel publishing workflow (`.github/workflows/release_package.yml`).
+  - Added security vulnerability and secret scanning workflow (`.github/workflows/security_scan.yml`).
+  - Added GitHub CodeQL advanced semantic analysis workflow (`.github/workflows/code_ql.yml`).
+  - Added dependency validation and checksum workflow (`.github/workflows/dependency_check.yml`).
+- **Linter & Formatting Automation**:
+  - Initialized strict `.flake8` configuration and `[tool.black]` formatting settings in `pyproject.toml`.
+  - Added local helper scripts: `scripts/run_linter.sh`, `scripts/check_formatting.sh`, and `scripts/format_code.sh`.
+  - Authored comprehensive coding standards guide ([`docs/LINTER_STANDARDS.md`](docs/LINTER_STANDARDS.md)) and CI architecture guide ([`docs/CI_CD_PIPELINE.md`](docs/CI_CD_PIPELINE.md)).
+- **Testing & Diagnostics**:
+  - Added automated style compliance test runner (`tests/linter/test_style_compliance.py`).
+  - Added CI build troubleshooting guide ([`docs/TROUBLESHOOTING_CI.md`](docs/TROUBLESHOOTING_CI.md)).
+
 ## [1.0.0] - 2026-11-05
 
 ### Added
