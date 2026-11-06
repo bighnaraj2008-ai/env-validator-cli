@@ -110,7 +110,10 @@ python main.py --env .env.example --compare-example
 ```bash
 pytest tests/ -v
 flake8 main.py src schemas tests scripts
+python -m black --check --diff main.py src schemas tests scripts
 ```
+
+For comprehensive linter rules and formatting specifications, see [`docs/LINTER_STANDARDS.md`](docs/LINTER_STANDARDS.md).
 
 ---
 
