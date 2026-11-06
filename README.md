@@ -172,7 +172,7 @@ architecture, linting standards, build matrix, and local reproduction steps.
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development guidelines, testing standards, [`SECURITY.md`](SECURITY.md) for responsible disclosure, and [`docs/SECURITY_POLICY.md`](docs/SECURITY_POLICY.md) for policy details.
 When contributing new validation rules, ensure matching test cases are added to `tests/edge_cases/` and documented in `docs/EDGE_CASES.md`.
 For custom validation rule contribution instructions, see [`docs/CONTRIBUTORS_GUIDE.md`](docs/CONTRIBUTORS_GUIDE.md).
-Please verify all pull requests pass `flake8` and `python scripts/validate_docs.py` before submitting.
+Please verify all pull requests pass `flake8`, `python scripts/validate_docs.py`, and `./scripts/run_linter.sh` before submitting.
 
 ---
 
