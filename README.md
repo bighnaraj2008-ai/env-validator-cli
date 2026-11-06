@@ -199,6 +199,7 @@ Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bigh
 | [`docs/CI_CD_PIPELINE.md`](docs/CI_CD_PIPELINE.md) | CI/CD automation pipeline and build matrix specifications |
 | [`docs/LINTER_STANDARDS.md`](docs/LINTER_STANDARDS.md) | Python coding standards and linter rule configuration |
 | [`docs/TROUBLESHOOTING_CI.md`](docs/TROUBLESHOOTING_CI.md) | Triage and resolutions for failing CI/CD validation builds |
+| [`docs/RELEASE_PROCESS.md`](docs/RELEASE_PROCESS.md) | Version bumping, tag publishing, and wheel packaging runbook |
 
 ---
 
