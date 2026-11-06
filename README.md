@@ -201,6 +201,7 @@ Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bigh
 | [`docs/TROUBLESHOOTING_CI.md`](docs/TROUBLESHOOTING_CI.md) | Triage and resolutions for failing CI/CD validation builds |
 | [`docs/RELEASE_PROCESS.md`](docs/RELEASE_PROCESS.md) | Version bumping, tag publishing, and wheel packaging runbook |
 | [`docs/SECURITY_POLICY.md`](docs/SECURITY_POLICY.md) | Security reporting and vulnerability disclosure policy |
+| [`docs/FAQ_AUTOMATION.md`](docs/FAQ_AUTOMATION.md) | Frequently asked questions for CI/CD and automation |
 
 ---
 
