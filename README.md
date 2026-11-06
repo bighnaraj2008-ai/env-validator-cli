@@ -178,7 +178,7 @@ Please verify all pull requests pass `flake8`, `python scripts/validate_docs.py`
 
 ## License
 
-Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bighnaraj2008-ai.
+Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bighnaraj2008-ai. All rights reserved.
 
 ---
 
