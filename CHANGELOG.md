@@ -18,7 +18,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Initialized strict `.flake8` configuration and `[tool.black]` formatting settings in `pyproject.toml`.
   - Added local helper scripts: `scripts/run_linter.sh`, `scripts/check_formatting.sh`, and `scripts/format_code.sh`.
   - Authored comprehensive coding standards guide ([`docs/LINTER_STANDARDS.md`](docs/LINTER_STANDARDS.md)) and CI architecture guide ([`docs/CI_CD_PIPELINE.md`](docs/CI_CD_PIPELINE.md)).
+- **Community & Governance Templates**:
+  - Added automated Dependabot configuration (`.github/dependabot.yml`).
+  - Added standardized GitHub issue templates for bug reports and feature requests.
+  - Added pull request review checklist template (`.github/pull_request_template.md`).
+  - Added version release runbook ([`docs/RELEASE_PROCESS.md`](docs/RELEASE_PROCESS.md)) and bump script (`scripts/bump_version.sh`).
+  - Added security reporting policy ([`docs/SECURITY_POLICY.md`](docs/SECURITY_POLICY.md)).
+  - Added CI automation FAQ ([`docs/FAQ_AUTOMATION.md`](docs/FAQ_AUTOMATION.md)) and runner benchmark tracking ([`docs/BENCHMARK_CI.md`](docs/BENCHMARK_CI.md)).
 - **Testing & Diagnostics**:
+  - Added workflow build matrix verification test (`tests/ci/test_build_matrix.py`).
+  - Added CI diagnostic health check script (`scripts/health_check.py`).
+  - Added workflow cache cleaner utility (`scripts/clean_cache.py`).
+  - Added sample GitHub Actions integration snippet (`examples/github_actions_snippet.yaml`).
   - Added automated style compliance test runner (`tests/linter/test_style_compliance.py`).
   - Added CI build troubleshooting guide ([`docs/TROUBLESHOOTING_CI.md`](docs/TROUBLESHOOTING_CI.md)).
 
