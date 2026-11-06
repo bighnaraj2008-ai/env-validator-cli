@@ -169,7 +169,7 @@ architecture, linting standards, build matrix, and local reproduction steps.
 
 ## Contributing & Security
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development guidelines, testing standards, and [`SECURITY.md`](SECURITY.md) for responsible disclosure.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development guidelines, testing standards, [`SECURITY.md`](SECURITY.md) for responsible disclosure, and [`docs/SECURITY_POLICY.md`](docs/SECURITY_POLICY.md) for policy details.
 When contributing new validation rules, ensure matching test cases are added to `tests/edge_cases/` and documented in `docs/EDGE_CASES.md`.
 For custom validation rule contribution instructions, see [`docs/CONTRIBUTORS_GUIDE.md`](docs/CONTRIBUTORS_GUIDE.md).
 Please verify all pull requests pass `flake8` and `python scripts/validate_docs.py` before submitting.
@@ -200,6 +200,7 @@ Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bigh
 | [`docs/LINTER_STANDARDS.md`](docs/LINTER_STANDARDS.md) | Python coding standards and linter rule configuration |
 | [`docs/TROUBLESHOOTING_CI.md`](docs/TROUBLESHOOTING_CI.md) | Triage and resolutions for failing CI/CD validation builds |
 | [`docs/RELEASE_PROCESS.md`](docs/RELEASE_PROCESS.md) | Version bumping, tag publishing, and wheel packaging runbook |
+| [`docs/SECURITY_POLICY.md`](docs/SECURITY_POLICY.md) | Security reporting and vulnerability disclosure policy |
 
 ---
 
