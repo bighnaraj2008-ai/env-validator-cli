@@ -45,7 +45,7 @@ def format_report_diagnostics(report: ValidationReport) -> List[str]:
     """Format report errors and warnings into human-readable diagnostic lines."""
     diagnostics = []
     for err in report.errors:
-        diagnostics.append(f"ERROR: [{err.key}] {err.code} -> {err.message}")
+        diagnostics.append(f"ERROR: [{err.key}] code={err.code} -> {err.message}")
     for warn in report.warnings:
         diagnostics.append(f"WARN:  [{warn.key}] {warn.code} -> {warn.message}")
     return diagnostics
