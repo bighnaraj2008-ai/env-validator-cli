@@ -36,6 +36,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [1.0.0] - 2026-11-05
 
 ### Added
+- **Benchmarking & Performance Automation (Day 5)**:
+  - Added core parser throughput benchmark harness (`tests/benchmarks/bench_parser.py`).
+  - Added memory allocation footprint benchmark utility (`tests/benchmarks/bench_memory.py`).
+  - Added validation log export and JSON conversion utility (`scripts/export_validation_logs.py`).
+  - Added CI log rotation and historical pruning script (`scripts/prune_logs.py`).
+  - Added automated performance regression GitHub Actions workflow (`.github/workflows/benchmarks.yml`).
+  - Added production readiness checklist (`docs/PRODUCTION_CHECKLIST.md`) and benchmark guide (`docs/BENCHMARK_RESULTS.md`).
 - **Core Architecture & Specifications**:
   - Authored comprehensive YAML schema authoring guide ([`docs/SCHEMA_AUTHORING.md`](docs/SCHEMA_AUTHORING.md)).
   - Added full command-line usage and exit code guide ([`docs/CLI_USAGE.md`](docs/CLI_USAGE.md)).
