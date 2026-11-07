@@ -11,6 +11,10 @@ PYTHON_BIN="${PYTHON:-python}"
 "$PYTHON_BIN" scripts/generate_template.py --output smoke_env_example.tmp
 rm -f smoke_env_example.tmp
 
+echo "==> Running performance benchmark smoke check"
+"$PYTHON_BIN" tests/benchmarks/bench_parser.py --files 10 --lines 10
+"$PYTHON_BIN" tests/benchmarks/bench_memory.py --cycles 10
+
 echo "==> Running static analysis verification"
 "$PYTHON_BIN" -m flake8 main.py src schemas tests scripts
 
