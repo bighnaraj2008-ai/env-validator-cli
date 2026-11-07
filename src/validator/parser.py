@@ -83,8 +83,8 @@ def parse_env_file(
         line_count += 1
         line = raw_line.strip()
 
-        # Skip blank lines and comments.
-        if not line or line.startswith("#"):
+        # Skip blank lines and comments (fast path).
+        if not line or line[0] == "#":
             continue
 
         # Support ``export KEY=value`` shell-style declarations.
