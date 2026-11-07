@@ -1,4 +1,4 @@
-.PHONY: help test lint smoke clean
+.PHONY: help test lint smoke clean benchmark
 
 help:
 	@echo "Targets: test, lint, smoke, clean"
@@ -16,3 +16,6 @@ clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type d -name ".pytest_cache" -exec rm -rf {} +
 	rm -rf *.egg-info build dist
+
+benchmark:
+	python tests/benchmarks/bench_parser.py
