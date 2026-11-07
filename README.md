@@ -219,6 +219,7 @@ Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bigh
 | [`docs/SECURITY_POLICY.md`](docs/SECURITY_POLICY.md) | Security reporting and vulnerability disclosure policy |
 | [`docs/FAQ_AUTOMATION.md`](docs/FAQ_AUTOMATION.md) | Frequently asked questions for CI/CD and automation |
 | [`docs/BENCHMARK_CI.md`](docs/BENCHMARK_CI.md) | CI runner performance benchmark tracking guide |
+| [`docs/PRODUCTION_CHECKLIST.md`](docs/PRODUCTION_CHECKLIST.md) | Production deployment readiness checklist for CLI tools |
 
 ---
 
