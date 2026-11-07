@@ -1,4 +1,4 @@
-"""Custom assertion helper functions for validation test suites."""
+"""Custom assertion helper functions for validation and stress test suites."""
 
 from __future__ import annotations
 
