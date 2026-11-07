@@ -128,7 +128,7 @@ class TypeCastRule(Rule):
                 passed=False,
                 code=self.code,
                 message=(
-                    f"Cannot cast '{key}'={value!r} to type '{schema.type}'"
+                    f"Value '{value}' for '{key}' cannot be cast to required type '{schema.type}'"
                 ),
                 expected=schema.type,
                 actual=value,
