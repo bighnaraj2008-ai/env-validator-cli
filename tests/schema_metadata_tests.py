@@ -31,3 +31,17 @@ def test_repository_metadata_files():
     for filename in ["README.md", "LICENSE", "CHANGELOG.md", "pyproject.toml", ".flake8"]:
         target = REPO_ROOT / filename
         assert target.is_file(), f"Metadata file {filename} must exist"
+
+
+def test_day5_benchmark_and_production_files_exist():
+    """Verify Day 5 benchmark suites and production checklists exist."""
+    for rel_path in [
+        "tests/benchmarks/bench_parser.py",
+        "tests/benchmarks/bench_memory.py",
+        "docs/BENCHMARK_RESULTS.md",
+        "docs/PRODUCTION_CHECKLIST.md",
+        "scripts/export_validation_logs.py",
+        "scripts/prune_logs.py",
+    ]:
+        target = REPO_ROOT / rel_path
+        assert target.is_file(), f"Expected Day 5 deliverable {rel_path} to exist"
