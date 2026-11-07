@@ -85,6 +85,7 @@ class Schema:
         config = config or ValidationConfig()
         report = ValidationReport(source=config.env_file)
 
+        # Optimized field validation execution
         for field_schema in self.fields:
             report.fields_checked += 1
             value = values.get(field_schema.name)
