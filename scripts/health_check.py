@@ -36,6 +36,9 @@ def run_health_check() -> int:
     schemas_dir = REPO_ROOT / "schemas"
     if schemas_dir.is_dir() and list(schemas_dir.glob("*.yaml")):
         print("  [OK] Schemas directory contains YAML definitions")
+    bench_dir = REPO_ROOT / "tests" / "benchmarks"
+    if bench_dir.is_dir() and (bench_dir / "bench_parser.py").exists():
+        print("  [OK] Benchmark test harness verified")
     else:
         print("  [FAIL] Missing schema definitions in schemas/")
         missing_required.append("schemas")
