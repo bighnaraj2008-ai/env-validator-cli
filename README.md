@@ -1,6 +1,6 @@
 # ⚙️ env-validator-cli
 
-<p align="left">
+<p align="center">
   <a href="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/ci_validation.yml"><img src="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/ci_validation.yml/badge.svg" alt="CI Validation" /></a>
   <a href="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml"><img src="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml/badge.svg" alt="Env Validator CI" /></a>
   <a href="docs/TEST_COVERAGE.md"><img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Test Coverage" /></a>
