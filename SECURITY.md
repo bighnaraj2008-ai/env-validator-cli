@@ -7,3 +7,6 @@ Never commit `.env`, API keys, or cryptographic secrets into version control.
 ## Reporting Vulnerabilities
 Please do not open public issues for security vulnerabilities. Contact the
 repository maintainer privately via GitHub Security Advisories.
+
+## Secret Hygiene
+Always ensure that sensitive keys validated by schemas are excluded from logs and benchmark outputs.
