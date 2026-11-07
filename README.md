@@ -220,6 +220,7 @@ Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bigh
 | [`docs/FAQ_AUTOMATION.md`](docs/FAQ_AUTOMATION.md) | Frequently asked questions for CI/CD and automation |
 | [`docs/BENCHMARK_CI.md`](docs/BENCHMARK_CI.md) | CI runner performance benchmark tracking guide |
 | [`docs/PRODUCTION_CHECKLIST.md`](docs/PRODUCTION_CHECKLIST.md) | Production deployment readiness checklist for CLI tools |
+| [`docs/ARCHIVE_POLICY.md`](docs/ARCHIVE_POLICY.md) | Validation log archiving and retention policy |
 
 ---
 
