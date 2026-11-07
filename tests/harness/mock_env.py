@@ -1,4 +1,4 @@
-"""Mock environment file fixture helper for unit and CLI tests."""
+"""Mock environment file fixture helper for unit, CLI, and benchmark tests."""
 
 from __future__ import annotations
 
