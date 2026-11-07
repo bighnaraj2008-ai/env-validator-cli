@@ -118,6 +118,21 @@ For comprehensive linter rules and formatting specifications, see [`docs/LINTER_
 
 ---
 
+## Benchmarking
+
+Rigorous parsing and schema validation throughput benchmarks live under
+`tests/benchmarks/`.
+
+```bash
+# Run parsing throughput benchmark
+python tests/benchmarks/bench_parser.py --files 100 --lines 50
+
+# Run memory allocation benchmark
+python tests/benchmarks/bench_memory.py --cycles 100
+```
+
+---
+
 ## Testing & Quality Assurance
 
 Run the test suite and edge-case validation suite locally:
