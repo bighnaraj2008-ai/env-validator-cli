@@ -4,7 +4,7 @@
   <a href="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/ci_validation.yml"><img src="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/ci_validation.yml/badge.svg" alt="CI Validation" /></a>
   <a href="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml"><img src="https://github.com/bighnaraj2008-ai/env-validator-cli/actions/workflows/validator_ci.yml/badge.svg" alt="Env Validator CI" /></a>
   <a href="docs/TEST_COVERAGE.md"><img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Test Coverage" /></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version 1.0.0" /></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-1.0.0-success.svg" alt="Version 1.0.0" /></a>
   <a href="#"><img src="https://img.shields.io/badge/maintenance-100--day%20streak-orange.svg" alt="Maintenance Streak" /></a>
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg" alt="Python Versions" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT" /></a>
