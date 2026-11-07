@@ -193,6 +193,14 @@ Please verify all pull requests pass `flake8`, `python scripts/validate_docs.py`
 
 ---
 
+---
+
+## Acknowledgments
+
+`env-validator-cli` is inspired by the 12-factor application methodology and the Python community's robust standard library design principles.
+
+---
+
 ## License
 
 Licensed under the [MIT License](LICENSE) (Open Source). Copyright (c) 2026 bighnaraj2008-ai. All rights reserved.
