@@ -34,11 +34,12 @@ variable against strict type, regex, length, and required rules.
 2. [Modular Architecture](#modular-architecture)
 3. [Schema Authoring](#schema-authoring)
 4. [Command-Line Usage](#command-line-usage)
-5. [Testing & Quality Assurance](#testing--quality-assurance)
-6. [Troubleshooting](#troubleshooting)
-7. [Documentation Index](#documentation-index)
-8. [Contributing & Security](#contributing--security)
-9. [License](#license)
+5. [Benchmarking](#benchmarking)
+6. [Testing & Quality Assurance](#testing--quality-assurance)
+7. [Troubleshooting](#troubleshooting)
+8. [Documentation Index](#documentation-index)
+9. [Contributing & Security](#contributing--security)
+10. [License](#license)
 
 ---
 
